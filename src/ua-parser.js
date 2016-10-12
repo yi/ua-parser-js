@@ -671,87 +671,95 @@
 
         ],
 
-        engine : [[
+        engine : [
 
-            /windows.+\sedge\/([\w\.]+)/i                                       // EdgeHTML
-            ], [VERSION, [NAME, 'EdgeHTML']], [
+            //[
+            ///windows.+\sedge\/([\w\.]+)/i                                       // EdgeHTML
+            //], [VERSION, [NAME, 'EdgeHTML']],
 
+            [
             /(presto)\/([\w\.]+)/i,                                             // Presto
             /(webkit|trident|netfront|netsurf|amaya|lynx|w3m)\/([\w\.]+)/i,     // WebKit/Trident/NetFront/NetSurf/Amaya/Lynx/w3m
             /(khtml|tasman|links)[\/\s]\(?([\w\.]+)/i,                          // KHTML/Tasman/Links
             /(icab)[\/\s]([23]\.[\d\.]+)/i                                      // iCab
-            ], [NAME, VERSION], [
+            ], [NAME, VERSION],
 
-            /rv\:([\w\.]+).*(gecko)/i                                           // Gecko
-            ], [VERSION, NAME]
+            //[
+            ///rv\:([\w\.]+).*(gecko)/i                                           // Gecko
+            //], [VERSION, NAME]
         ],
 
-        os : [[
+        os : [
 
-            // Windows based
-            /microsoft\s(windows)\s(vista|xp)/i                                 // Windows (iTunes)
-            ], [NAME, VERSION], [
-            /(windows)\snt\s6\.2;\s(arm)/i,                                     // Windows RT
-            /(windows\sphone(?:\sos)*|windows\smobile|windows)[\s\/]?([ntce\d\.\s]+\w)/i
-            ], [NAME, [VERSION, mapper.str, maps.os.windows.version]], [
-            /(win(?=3|9|n)|win\s9x\s)([nt\d\.]+)/i
-            ], [[NAME, 'Windows'], [VERSION, mapper.str, maps.os.windows.version]], [
+            //[
+            //// Windows based
+            ///microsoft\s(windows)\s(vista|xp)/i                                 // Windows (iTunes)
+            //], [NAME, VERSION], [
+            ///(windows)\snt\s6\.2;\s(arm)/i,                                     // Windows RT
+            ///(windows\sphone(?:\sos)*|windows\smobile|windows)[\s\/]?([ntce\d\.\s]+\w)/i
+            //], [NAME, [VERSION, mapper.str, maps.os.windows.version]], [
+            ///(win(?=3|9|n)|win\s9x\s)([nt\d\.]+)/i
+            //], [[NAME, 'Windows'], [VERSION, mapper.str, maps.os.windows.version]], [
 
-            // Mobile/Embedded OS
-            /\((bb)(10);/i                                                      // BlackBerry 10
-            ], [[NAME, 'BlackBerry'], VERSION], [
-            /(blackberry)\w*\/?([\w\.]+)*/i,                                    // Blackberry
-            /(tizen)[\/\s]([\w\.]+)/i,                                          // Tizen
-            /(android|webos|palm\sos|qnx|bada|rim\stablet\sos|meego|contiki)[\/\s-]?([\w\.]+)*/i,
-                                                                                // Android/WebOS/Palm/QNX/Bada/RIM/MeeGo/Contiki
-            /linux;.+(sailfish);/i                                              // Sailfish OS
-            ], [NAME, VERSION], [
-            /(symbian\s?os|symbos|s60(?=;))[\/\s-]?([\w\.]+)*/i                 // Symbian
-            ], [[NAME, 'Symbian'], VERSION], [
-            /\((series40);/i                                                    // Series 40
-            ], [NAME], [
-            /mozilla.+\(mobile;.+gecko.+firefox/i                               // Firefox OS
-            ], [[NAME, 'Firefox OS'], VERSION], [
+            //// Mobile/Embedded OS
+            ///\((bb)(10);/i                                                      // BlackBerry 10
+            //], [[NAME, 'BlackBerry'], VERSION], [
+            ///(blackberry)\w*\/?([\w\.]+)*/i,                                    // Blackberry
+            ///(tizen)[\/\s]([\w\.]+)/i,                                          // Tizen
+            ///(android|webos|palm\sos|qnx|bada|rim\stablet\sos|meego|contiki)[\/\s-]?([\w\.]+)*/i,
+                                                                                //// Android/WebOS/Palm/QNX/Bada/RIM/MeeGo/Contiki
+            ///linux;.+(sailfish);/i                                              // Sailfish OS
+            //], [NAME, VERSION], [
+            ///(symbian\s?os|symbos|s60(?=;))[\/\s-]?([\w\.]+)*/i                 // Symbian
+            //], [[NAME, 'Symbian'], VERSION], [
+            ///\((series40);/i                                                    // Series 40
+            //], [NAME], [
+            ///mozilla.+\(mobile;.+gecko.+firefox/i                               // Firefox OS
+            //], [[NAME, 'Firefox OS'], VERSION], [
 
-            // Console
-            /(nintendo|playstation)\s([wids34portablevu]+)/i,                   // Nintendo/Playstation
+            //// Console
+            ///(nintendo|playstation)\s([wids34portablevu]+)/i,                   // Nintendo/Playstation
 
-            // GNU/Linux based
-            /(mint)[\/\s\(]?(\w+)*/i,                                           // Mint
-            /(mageia|vectorlinux)[;\s]/i,                                       // Mageia/VectorLinux
-            /(joli|[kxln]?ubuntu|debian|[open]*suse|gentoo|(?=\s)arch|slackware|fedora|mandriva|centos|pclinuxos|redhat|zenwalk|linpus)[\/\s-]?([\w\.-]+)*/i,
-                                                                                // Joli/Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware
-                                                                                // Fedora/Mandriva/CentOS/PCLinuxOS/RedHat/Zenwalk/Linpus
-            /(hurd|linux)\s?([\w\.]+)*/i,                                       // Hurd/Linux
-            /(gnu)\s?([\w\.]+)*/i                                               // GNU
-            ], [NAME, VERSION], [
+            //// GNU/Linux based
+            ///(mint)[\/\s\(]?(\w+)*/i,                                           // Mint
+            ///(mageia|vectorlinux)[;\s]/i,                                       // Mageia/VectorLinux
+            ///(joli|[kxln]?ubuntu|debian|[open]*suse|gentoo|(?=\s)arch|slackware|fedora|mandriva|centos|pclinuxos|redhat|zenwalk|linpus)[\/\s-]?([\w\.-]+)*/i,
+                                                                                //// Joli/Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware
+                                                                                //// Fedora/Mandriva/CentOS/PCLinuxOS/RedHat/Zenwalk/Linpus
+            ///(hurd|linux)\s?([\w\.]+)*/i,                                       // Hurd/Linux
+            ///(gnu)\s?([\w\.]+)*/i                                               // GNU
+            //], [NAME, VERSION], [
 
-            /(cros)\s[\w]+\s([\w\.]+\w)/i                                       // Chromium OS
-            ], [[NAME, 'Chromium OS'], VERSION],[
+            ///(cros)\s[\w]+\s([\w\.]+\w)/i                                       // Chromium OS
+            //], [[NAME, 'Chromium OS'], VERSION],[
 
-            // Solaris
-            /(sunos)\s?([\w\.]+\d)*/i                                           // Solaris
-            ], [[NAME, 'Solaris'], VERSION], [
+            //// Solaris
+            ///(sunos)\s?([\w\.]+\d)*/i                                           // Solaris
+            //], [[NAME, 'Solaris'], VERSION], [
 
-            // BSD based
-            /\s([frentopc-]{0,4}bsd|dragonfly)\s?([\w\.]+)*/i                   // FreeBSD/NetBSD/OpenBSD/PC-BSD/DragonFly
-            ], [NAME, VERSION],[
+            //// BSD based
+            ///\s([frentopc-]{0,4}bsd|dragonfly)\s?([\w\.]+)*/i                   // FreeBSD/NetBSD/OpenBSD/PC-BSD/DragonFly
+            //], [NAME, VERSION],
 
+            [
             /(ip[honead]+)(?:.*os\s([\w]+)*\slike\smac|;\sopera)/i              // iOS
             ], [[NAME, 'iOS'], [VERSION, /_/g, '.']], [
 
             /(mac\sos\sx)\s?([\w\s\.]+\w)*/i,
             /(macintosh|mac(?=_powerpc)\s)/i                                    // Mac OS
-            ], [[NAME, 'Mac OS'], [VERSION, /_/g, '.']], [
+            ], [[NAME, 'Mac OS'], [VERSION, /_/g, '.']]
 
-            // Other
-            /((?:open)?solaris)[\/\s-]?([\w\.]+)*/i,                            // Solaris
-            /(haiku)\s(\w+)/i,                                                  // Haiku
-            /(aix)\s((\d)(?=\.|\)|\s)[\w\.]*)*/i,                               // AIX
-            /(plan\s9|minix|beos|os\/2|amigaos|morphos|risc\sos|openvms)/i,
-                                                                                // Plan9/Minix/BeOS/OS2/AmigaOS/MorphOS/RISCOS/OpenVMS
-            /(unix)\s?([\w\.]+)*/i                                              // UNIX
-            ], [NAME, VERSION]
+            //, [
+
+            //// Other
+            ///((?:open)?solaris)[\/\s-]?([\w\.]+)*/i,                            // Solaris
+            ///(haiku)\s(\w+)/i,                                                  // Haiku
+            ///(aix)\s((\d)(?=\.|\)|\s)[\w\.]*)*/i,                               // AIX
+            ///(plan\s9|minix|beos|os\/2|amigaos|morphos|risc\sos|openvms)/i,
+                                                                                //// Plan9/Minix/BeOS/OS2/AmigaOS/MorphOS/RISCOS/OpenVMS
+            ///(unix)\s?([\w\.]+)*/i                                              // UNIX
+
+            //], [NAME, VERSION]
         ]
     };
 
